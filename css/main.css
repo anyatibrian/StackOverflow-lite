@@ -1,17 +1,106 @@
+/* desktop styling */
+
 @media screen and (max-width: 2400px) {
+    html,
     body {
-        background-color: lightgreen;
+        margin: 0 auto;
+        padding: 0 auto;
+        background-color: aqua;
+        font-family: 'Lato', sans-serif;
+        font-size: 1.3em;
+        width: 90%;
+    }
+    /* style nav */
+    header {
+        background: #ffffff;
+        margin-top: .5rem;
+        padding: 1.0rem;
+    }
+    nav>ul {
+        display: flex;
+    }
+    nav>ul>li {
+        list-style: none;
+    }
+    /* style title */
+    .home {
+        display: flex;
+        font-size: 1.5rem;
+        color: rgb(255, 255, 255);
+        text-align: center;
+        justify-content: center;
+        background: blue;
+        margin-left: auto;
+        margin-right: auto;
+        width: 30%;
+        font-weight: bold;
+        padding: 20px;
+        border-radius: .5rem;
+    }
+    /* style link */
+    a {
+        outline: none;
+        text-decoration: none;
+        padding: 2px 1px 0;
+    }
+    a:link {
+        color: rgb(11, 54, 78);
+    }
+    a:focus {
+        background: rgb(96, 238, 231);
+        padding: .5rem;
+        border-radius: .5rem;
+    }
+    a:hover {
+        color: #ffffff;
+    }
+    a:active {
+        color: #ffffff;
+    }
+    /* style nav list */
+    .ul-item {
+        margin-left: .5rem;
+    }
+    .ul-item-search {
+        margin-left: auto;
+    }
+    /* style search bar*/
+    .searchform>input {
+        height: 45px;
+        width: auto;
+    }
+    .searchform>button {
+        height: 45px;
+        font-family: sans-serif;
+        font-size: 1.0rem;
+        font-weight: bold;
+        color: blue;
+        background: aqua;
+    }
+    .searchform>::placeholder {
+        text-align: center;
+        color: blue;
     }
 }
+
+/* tablet styling */
 
 @media screen and (max-width: 1024px) {
+    html,
     body {
-        background-color: rgb(15, 160, 15);
+        margin: 0 auto;
+        padding: 0 auto;
+        background-color: blue;
     }
 }
 
+/* smartphone styling */
+
 @media screen and (max-width: 480px) {
+    html,
     body {
-        background-color: rgb(2, 19, 2);
+        margin: 0 auto;
+        padding: 0 auto;
+        background-color: brown;
     }
 }
