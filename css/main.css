@@ -1,7 +1,6 @@
 /* fonts.google.com imports */
 
-@import url('https://fonts.googleapis.com/css?family=Fjalla+One');
-@import url('https://fonts.googleapis.com/css?family=Fjalla+One|Patua+One');
+@import url('https://fonts.googleapis.com/css?family=Archivo+Black|Baloo+Bhaina|Fjalla+One|Old+Standard+TT|Patua+One');
 /* desktop styling */
 
 @media screen and (max-width: 2400px) {
@@ -21,6 +20,7 @@
         margin-top: .5rem;
         padding: .5rem;
         border-radius: .2rem;
+        border-bottom: .5rem solid #e17055;
     }
     nav>ul {
         display: flex;
@@ -42,7 +42,6 @@
         font-weight: bold;
         margin-top: 1.0rem;
         padding: 20px;
-        border-radius: .5rem;
     }
     .home span {
         color: #d35400;
@@ -87,6 +86,14 @@
         height: 45px;
         width: auto;
         border-radius: .5rem;
+        font-family: 'Baloo Bhaina', cursive;
+        font-size: 1rem;
+        text-align: center;
+        color: #0984e3;
+    }
+    input:focus {
+        border: 1px solid rgb(209, 46, 17);
+        box-shadow: 0 0 10px rgb(218, 120, 74);
     }
     .searchform>button {
         height: 45px;
@@ -99,7 +106,111 @@
     }
     .searchform>::placeholder {
         text-align: center;
-        color: blue;
+        color: #bdc3c7;
+    }
+    /* main section */
+    .main-section {
+        background: #0984e3;
+    }
+    /* main flex */
+    .main-flex {
+        display: flex;
+    }
+    .main-flex-item {
+        justify-content: center;
+        flex: 2;
+        padding: 5px 20px;
+    }
+    .login-form {
+        position: relative;
+    }
+    .summary {
+        color: #ffffff;
+        font-family: 'Old Standard TT', serif;
+        font-size: 1.0rem;
+    }
+    .summary p {
+        font-family: 'Archivo Black', sans-serif;
+    }
+    .signup {
+        color: #ddebeb;
+    }
+    /* register flex */
+    .login-form p {
+        text-align: left;
+        color: #ffffff;
+    }
+    .flex-container {
+        display: flex;
+        justify-content: center;
+        margin: 0 auto;
+        flex-direction: row;
+    }
+    .flex-item {
+        padding: .5rem;
+        margin: 10px;
+        width: 260px;
+    }
+    .flex-row {
+        display: flex;
+        align-items: stretch;
+    }
+    .flex-column-label {
+        flex: 1;
+        padding: 5px;
+        margin: 0 auto;
+        height: 2rem;
+        text-align: left;
+        color: #d35400;
+        font-family: 'Archivo Black', sans-serif;
+        font-size: 1.0rem;
+    }
+    .flex-column-label span {
+        color: #ddebeb;
+    }
+    .flex-column-input {
+        flex: 3;
+    }
+    .flex-column-input input {
+        height: 2rem;
+        width: 20rem;
+        margin: 1.5px 0;
+        font-family: 'Baloo Bhaina', cursive;
+        font-size: 1rem;
+        text-align: center;
+        color: #0984e3;
+    }
+    .flex-column-input ::placeholder {
+        font-size: 1.0rem;
+        text-align: center;
+        color: #bdc3c7;
+    }
+    /* agree */
+    .agree {
+        display: flex;
+        flex-direction: row-reverse;
+    }
+    .agree-item {}
+    .terms {
+        font-size: .6rem;
+        padding: .5rem;
+    }
+    /* submit button */
+    #submit-button button {
+        display: flex;
+        flex-wrap: wrap;
+        border: none;
+        padding: 1rem 1rem;
+        text-decoration: none;
+        background: #28abbf;
+        color: #ffffff;
+        font-family: 'Archivo Black', sans-serif;
+        font-size: 1rem;
+        cursor: pointer;
+        text-align: center;
+        transition: background 250ms ease-in-out, transform 150ms ease;
+        appearance: none;
+        font-weight: bold;
     }
 }
 
