@@ -1,9 +1,9 @@
 /* fonts.google.com imports */
 
 @import url('https://fonts.googleapis.com/css?family=Archivo+Black|Baloo+Bhaina|Fjalla+One|Old+Standard+TT|Patua+One|Timmana');
-/* desktop styling */
+/* smartphone styling */
 
-@media screen and (max-width: 2400px) {
+@media screen and (max-width: 480px) {
     html,
     body {
         margin: 0 auto;
@@ -11,16 +11,16 @@
         background-color: aqua;
         background: url(../img/background.jpg);
         font-family: 'Lato', sans-serif;
-        font-size: 1.3em;
-        width: 90%;
+        font-size: 1.0em;
+        width: 95%;
     }
     /* style nav */
     header {
-        background: #dfe4ea;
+        background: #ddebeb;
         margin-top: .5rem;
         padding: .5rem;
         border-radius: .2rem;
-        border-bottom: .5rem solid #e17055;
+        border-bottom: 1px solid #e17055;
     }
     nav>ul {
         display: flex;
@@ -31,16 +31,16 @@
     /* style title */
     .home {
         display: flex;
-        font-size: 1.5rem;
+        font-size: 1.0rem;
         color: rgb(255, 255, 255);
         text-align: center;
         justify-content: center;
         background: #0c2461;
         margin-left: auto;
         margin-right: auto;
-        width: 30%;
+        width: 60%;
         font-weight: bold;
-        margin-top: 1.0rem;
+        margin-top: .5rem;
         padding: 20px;
     }
     .home span {
@@ -50,7 +50,7 @@
     a {
         outline: none;
         text-decoration: none;
-        padding: 2px 1px 0;
+        padding: 1px .5px 0;
         font-weight: bold;
     }
     .ul-item a:link {
@@ -59,7 +59,6 @@
     .ul-item a:focus {
         background: #0984e3;
         padding: .5rem;
-        border-radius: .5rem;
     }
     .ul-item a:hover {
         color: #ffffff;
@@ -69,23 +68,22 @@
     }
     /* style nav list */
     .ul-item {
-        margin-left: .5rem;
-        font-family: Impact, Charcoal, sans-serif;
+        margin-left: 0;
+        padding-right: .5rem;
+        font-family: sans-serif;
     }
     .ul-item a {
         color: #d35400;
-        font-size: 1.1rem;
-        /* font-family: 'Fjalla One', sans-serif; */
-        font-family: 'Patua One', cursive;
+        font-size: 1.0rem;
+        font-family: sans-serif;
     }
     .ul-item-search {
-        margin-left: auto;
+        margin-left: 1.5rem;
     }
     /* style search bar*/
     .searchform>input {
-        height: 45px;
-        width: auto;
-        border-radius: .5rem;
+        height: 25px;
+        width: 80%;
         font-family: 'Baloo Bhaina', cursive;
         font-size: 1rem;
         text-align: center;
@@ -96,13 +94,14 @@
         box-shadow: 0 0 10px rgb(218, 120, 74);
     }
     .searchform>button {
-        height: 45px;
+        display: none;
+        height: 25px;
         font-family: sans-serif;
-        font-size: 1.0rem;
-        font-weight: bold;
+        font-size: .5rem;
+        font-weight: lighter;
         color: rgb(255, 255, 255);
         background: blue;
-        border-radius: .5rem;
+        border-radius: 0;
     }
     .searchform>::placeholder {
         text-align: center;
@@ -115,6 +114,7 @@
     /* main flex */
     .main-flex {
         display: flex;
+        flex-direction: column;
     }
     .main-flex-item {
         justify-content: center;
@@ -131,13 +131,14 @@
     }
     .summary p {
         font-family: 'Archivo Black', sans-serif;
+        text-align: center;
     }
     .signup {
         color: #ddebeb;
     }
     /* register flex */
     .login-form p {
-        text-align: left;
+        text-align: center;
         color: #ffffff;
     }
     .flex-container {
@@ -153,10 +154,10 @@
     }
     .flex-row {
         display: flex;
-        align-items: stretch;
+        flex-direction: column;
+        justify-content: center;
     }
     .flex-column-label {
-        flex: 1;
         padding: 5px;
         margin: 0 auto;
         height: 2rem;
@@ -169,11 +170,11 @@
         color: #ddebeb;
     }
     .flex-column-input {
-        flex: 3;
+        justify-content: center;
     }
     .flex-column-input input {
-        height: 2rem;
-        width: 20rem;
+        height: 2.0rem;
+        width: 100%;
         margin: 1.5px 0;
         font-family: 'Baloo Bhaina', cursive;
         font-size: 1rem;
@@ -190,7 +191,6 @@
         display: flex;
         flex-direction: row-reverse;
     }
-    .agree-item {}
     .terms {
         font-size: .6rem;
         padding: .5rem;
@@ -212,49 +212,13 @@
         appearance: none;
         font-weight: bold;
     }
-    /* summary section */
-    #summary {
-        padding: .5rem;
-        background: #0c2461;
-    }
-    #sum-article {
-        padding: .5rem;
-        font-family: sans-serif;
-        font-size: .8rem;
-        font-weight: lighter;
-        color: #ffffff;
-    }
+    /* summary */
     #sum-article span {
+        display: block;
         color: #d35400;
         font-size: 1rem;
         font-family: 'Old Standard TT', serif;
         font-style: italic;
-    }
-    /* question section */
-    #question {
-        padding: .5rem;
-        background: #ffffff;
-    }
-    .top-questions {
-        text-align: center;
-        color: #2f3542;
-    }
-    .question p {
-        color: #0c2461;
-        font-size: 1rem;
-    }
-    .q-body {
-        color: #747d8c;
-        font-size: .9rem;
-        padding: .5rem;
-    }
-    .q-answer button {
-        font-size: .8rem;
-        background: #0c2461;
-        border: none;
-        padding: .3rem;
-        color: #ffffff;
-        box-shadow: 3px 3px 2px #70a1ff;
     }
     /* footer */
     #footer {
@@ -271,6 +235,7 @@
         text-align: center;
     }
     .address span {
+        display: block;
         padding: .5rem;
         color: #0c2461;
     }
