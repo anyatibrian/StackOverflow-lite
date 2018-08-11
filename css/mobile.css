@@ -98,6 +98,7 @@
         font-weight: lighter;
         color: rgb(255, 255, 255);
         background: blue;
+        border-radius: 0;
     }
     .searchform>::placeholder {
         text-align: center;
