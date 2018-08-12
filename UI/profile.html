@@ -25,10 +25,7 @@
                     <a href="index.html" class="">Home</a>
                 </li>
                 <li class="ul-item">
-                    <a href="#" class="">Post Question</a>
-                </li>
-                <li class="ul-item">
-                    <a href="#" class="">Log Out</a>
+                    <a href="index.html" class="">Log Out</a>
                 </li>
                 <li class="ul-item-search">
                     <form class="searchform">
@@ -52,8 +49,10 @@
                     <h3 class="profile-name">Emanuel Okello</h3>
                     <p class="title">CTO Safari Buddy</p>
                     <p>Kampala, Uganda</p>
-                    <p class="ques-ans"><span>456</span> Questions asked</p>
-                    <p class="ques-ans"><span>2456</span> Answered received</p>
+                    <p class="ques-ans">
+                        <span>456</span> Questions asked</p>
+                    <p class="ques-ans">
+                        <span>2456</span> Answered received</p>
                     <a href="#">
                         <i class="fa fa-dribbble"></i>
                     </a>
@@ -68,6 +67,9 @@
                     </a>
                     <p>
                         <label class="btn btn--blue" for="modal-2">Edit Profile</label>
+                    </p>
+                    <p>
+                        <label class="btn btn--blue" for="modal-3">Post Question</label>
                     </p>
                 </div>
                 <div class=" profile-item user-stack">
@@ -167,16 +169,16 @@
             </div>
         </section>
         <!-- end profile section -->
-        <!-- start modal -->
+        <!-- start edit profile modal -->
         <input class="modal-state" id="modal-2" type="checkbox" />
         <div class="modal">
             <label class="modal__bg" for="modal-2"></label>
             <div class="modal__inner">
                 <label class="modal__close" for="modal-2"></label>
                 <h2>Edit Profile</h2>
-                <!-- start signup form -->
+                <!-- start edit profile form -->
                 <div class="main-flex-item signup">
-                    <form class="login-form">
+                    <form class="login-form" action="profile.html">
 
                         <div class="flex-row">
                             <div class="flex-column-label">
@@ -226,7 +228,49 @@
                 <!-- end signup form -->
             </div>
         </div>
-        <!-- end modal -->
+        <!-- end edit profile modal -->
+
+        <!-- start question modal -->
+        <input class="modal-state" id="modal-3" type="checkbox" />
+        <div class="modal">
+            <label class="modal__bg" for="modal-3"></label>
+            <div class="modal__inner">
+                <label class="modal__close" for="modal-3"></label>
+                <!-- start question form -->
+                <div class="">
+                    <form class="" action="home.html">
+
+                        <div class="">
+                            <div class="">
+                                <label for="question">Question Title</label>
+                            </div>
+                            <div class="">
+                                <input type="text" name="question" id="question" autofocus placeholder="Question Title" />
+                            </div>
+                        </div>
+                        <div class="">
+                            <div class="">
+                                <textarea name="textbox" id="textbox" autofocus placeholder="Post your message . . ."></textarea>
+                            </div>
+                        </div>
+
+                        <div class="">
+                            <div id="" class="">
+                                <button type="button" name="submit-button">POST</button>
+                            </div>
+                            <div class="">
+                                <em>
+
+                                </em>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+                <!-- end question form -->
+            </div>
+        </div>
+        <!-- end question modal -->
 
         <!-- start footer -->
         <section id="footer">
