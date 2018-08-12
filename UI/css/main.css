@@ -490,6 +490,39 @@
         float: left;
         margin: 0 1em 1em 0;
     }
+    /* question view styling */
+    .qv-container {
+        display: flex;
+        padding: .5rem;
+        background: #2980b9;
+        color: #550c0c;
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        font-size: 20px;
+        counter-reset: recent-questions;
+    }
+    .qv-container p {
+        color: #ffffff;
+    }
+    .qv-container dt:before {
+        content: counter(recent-questions);
+        counter-increment: recent-questions;
+    }
+    .qv-container dt {
+        font-size: 12px;
+    }
+    .qv-container dd {
+        color: #ffffff;
+        font-size: 12px;
+    }
+    .asked-item {
+        flex: 1;
+    }
+    .ans-item {
+        flex: 2;
+    }
+    .new-item {
+        flex: 1;
+    }
 }
 
 /* tablet styling */
