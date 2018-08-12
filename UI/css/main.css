@@ -260,8 +260,6 @@
         padding: .5rem;
         background: #dfe4ea;
         margin-bottom: 1rem;
-        position: relative;
-        bottom: 0;
     }
     .address {
         padding: .5rem;
@@ -383,6 +381,66 @@
         transition: all 500ms ease;
     }
     /* edit profile form */
+    .popup {
+        display: none;
+        width: 100%;
+        position: relative;
+        top: .5rem;
+        bottom: .5rem;
+        right: 0;
+    }
+    #popup-editor:target {
+        display: flex;
+    }
+    .popup::before {
+        content: "";
+        box-sizing: border-box;
+        width: 100%;
+        background-color: #0984e3;
+        position: fixed;
+        left: 0;
+        top: 50%;
+        will-change: height, top;
+        animation: open-animation .6s cubic-bezier(0.83, 0.04, 0, 1.16) .65s both;
+    }
+    .popup:after {
+        content: "";
+        width: 0;
+        height: 2px;
+        background-color: #f0f0f0;
+        will-change: width, opacity;
+        animation: line-animation .6s cubic-bezier(0.83, 0.04, 0, 1.16) both;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        margin-top: -1px;
+    }
+    @keyframes line-animation {
+        0% {
+            width: 0;
+            opacity: 1;
+        }
+        99% {
+            width: 100%;
+            opacity: 1;
+        }
+        100% {
+            width: 100%;
+            opacity: 0;
+        }
+    }
+    .popup__close {
+        width: 3.2rem;
+        height: 3.2rem;
+        text-indent: -9999px;
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: contain;
+        background-image: url(data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjMDAwMDAwIiBoZWlnaHQ9IjI0IiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4gICAgPHBhdGggZD0iTTE5IDYuNDFMMTcuNTkgNSAxMiAxMC41OSA2LjQxIDUgNSA2LjQxIDEwLjU5IDEyIDUgMTcuNTkgNi40MSAxOSAxMiAxMy40MSAxNy41OSAxOSAxOSAxNy41OSAxMy40MSAxMnoiLz4gICAgPHBhdGggZD0iTTAgMGgyNHYyNEgweiIgZmlsbD0ibm9uZSIvPjwvc3ZnPg==);
+    }
 }
 
 /* tablet styling */

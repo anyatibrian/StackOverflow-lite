@@ -21,12 +21,12 @@
                 <span>Overflow lite</span>
             </a>
             <ul class="nav-ul">
-                <!-- <li class="ul-item home">
-                    <a href="#" class="">Stackoverflow-lite</a>
-                </li> -->
-                <!-- <li class="ul-item">
-                    <a href="#" class=""></a>
-                </li> -->
+                <li class="ul-item">
+                    <a href="index.html" class="">Home</a>
+                </li>
+                <li class="ul-item">
+                    <a href="#" class="">Post Question</a>
+                </li>
                 <li class="ul-item">
                     <a href="#" class="">Log Out</a>
                 </li>
@@ -67,7 +67,7 @@
                         <i class="fa fa-facebook"></i>
                     </a>
                     <p>
-                        <button id="edit-profile">Edit Profile</button>
+                        <a href="#popup-editor">Edit Profile</a>
                     </p>
                 </div>
                 <div class=" profile-item user-stack">
@@ -78,19 +78,38 @@
                                 <a href="#recent-questions">Recent Questions</a>
                             </h2>
                             <p>
-                                <div class="login-page">
-                                    <div class="form">
-                                        <form class="register-form">
-                                            <input type="text" placeholder="name" />
-                                            <input type="password" placeholder="password" />
-                                            <input type="text" placeholder="email address" />
-                                            <button>create</button>
-                                            <p class="message">
-                                                <a href="#">Sign In</a>
-                                            </p>
-                                        </form>
-                                    </div>
-                                </div>
+                                <!-- end question section -->
+                                <section id="question">
+                                    <article id="q-article">
+                                        <hr>
+                                        <div class="question">
+                                            <p>Question Title</p>
+                                            <div class="q-body">
+                                                But note that the changes you make on the text editor is local – it only applies to the text content of that particular textbox.
+                                                To make global text style changes (ie. if you want to change the style of
+                                                the pre-set Site Title so that all site titles you add on your website will
+                                                reflect the new style), you will need to do so via the Font Styles manager.
+                                            </div>
+                                            <div class="q-answer">
+                                                <button class="b-answer">View Answers</button>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="question">
+                                            <p>Question Title</p>
+                                            <div class="q-body">
+                                                But note that the changes you make on the text editor is local – it only applies to the text content of that particular textbox.
+                                                To make global text style changes (ie. if you want to change the style of
+                                                the pre-set Site Title so that all site titles you add on your website will
+                                                reflect the new style), you will need to do so via the Font Styles manager.
+                                            </div>
+                                            <div class="q-answer">
+                                                <button class="b-answer">View Answers</button>
+                                            </div>
+                                        </div>
+                                    </article>
+                                </section>
+                                <!-- end question section -->
                             </p>
                         </section>
 
@@ -99,19 +118,38 @@
                                 <a href="#most-answered">Most Answered</a>
                             </h2>
                             <p>
-                                <div class="login-page">
-                                    <div class="form">
-                                        <form class="register-form">
-                                            <input type="text" placeholder="name" />
-                                            <input type="password" placeholder="password" />
-                                            <input type="text" placeholder="email address" />
-                                            <button>create</button>
-                                            <p class="message">Already
-                                                <a href="#">Sign In</a>
-                                            </p>
-                                        </form>
-                                    </div>
-                                </div>
+                                <!-- end question section -->
+                                <section id="question">
+                                    <article id="q-article">
+                                        <hr>
+                                        <div class="question">
+                                            <p>Question Title</p>
+                                            <div class="q-body">
+                                                But note that the changes you make on the text editor is local – it only applies to the text content of that particular textbox.
+                                                To make global text style changes (ie. if you want to change the style of
+                                                the pre-set Site Title so that all site titles you add on your website will
+                                                reflect the new style), you will need to do so via the Font Styles manager.
+                                            </div>
+                                            <div class="q-answer">
+                                                <button class="b-answer">View Answers</button>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="question">
+                                            <p>Question Title</p>
+                                            <div class="q-body">
+                                                But note that the changes you make on the text editor is local – it only applies to the text content of that particular textbox.
+                                                To make global text style changes (ie. if you want to change the style of
+                                                the pre-set Site Title so that all site titles you add on your website will
+                                                reflect the new style), you will need to do so via the Font Styles manager.
+                                            </div>
+                                            <div class="q-answer">
+                                                <button class="b-answer">View Answers</button>
+                                            </div>
+                                        </div>
+                                    </article>
+                                </section>
+                                <!-- end question section -->
                             </p>
                         </section>
 
@@ -121,13 +159,42 @@
             </div>
         </section>
         <!-- end profile section -->
-        <!-- start summary section -->
-        <section id="summary">
-            <article id="sum-article">
-                <span>One of the first steps in creating a website is adding text.</span>
-                All of Website.com’s templates are pre-populated with sample content, including text.
-        </section>
-        <!-- end summary section -->
+        <div id="popup-editor" class="popup">
+            <div class="profile-pix">
+                <img src="./img/dude.jpeg">
+                <button class="edit-pix">Upload</button>
+            </div>
+            <form id="profile-form" class="group">
+                <div class="row">
+                    <div class="column">
+                        <label for="fullname">Full Name</label>
+                        <input type="text" name="fullname" id="fullname" placeholder="Full Name" autofocus>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="column">
+                        <label for="username">Username</label>
+                        <input type="text" name="username" id="username" placeholder="Username" autofocus>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="column">
+                        <label for="password">Password</label>
+                        <input type="password" name="password" id="password" placeholder="**********" autofocus>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="column">
+                        <label for="company">Company</label>
+                        <input type="text" name="company" id="company" autofocus>
+                    </div>
+                </div>
+                <div class="edit-button">
+                    <button type="submit">Update Profile</button>
+                </div>
+            </form>
+            <a href="#" class="popup__close">close</a>
+        </div>
 
         <!-- start footer -->
         <section id="footer">
