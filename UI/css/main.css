@@ -301,12 +301,15 @@
         outline: 0;
         display: inline-block;
         padding: 8px;
-        color: white;
+        color: rgb(243, 36, 36);
         background-color: #000;
         text-align: center;
         cursor: pointer;
         width: 100%;
         font-size: 18px;
+    }
+    .profile-card p span {
+        color: #d35400;
     }
     .profile-card a {
         text-decoration: none;
@@ -381,65 +384,111 @@
         transition: all 500ms ease;
     }
     /* edit profile form */
-    .popup {
-        display: none;
-        width: 100%;
-        position: relative;
-        top: .5rem;
-        bottom: .5rem;
+    .modal {
+        opacity: 0;
+        visibility: hidden;
+        position: fixed;
+        top: 0;
         right: 0;
-    }
-    #popup-editor:target {
-        display: flex;
-    }
-    .popup::before {
-        content: "";
-        box-sizing: border-box;
-        width: 100%;
-        background-color: #0984e3;
-        position: fixed;
+        bottom: 0;
         left: 0;
-        top: 50%;
-        will-change: height, top;
-        animation: open-animation .6s cubic-bezier(0.83, 0.04, 0, 1.16) .65s both;
+        text-align: left;
+        background: rgba(0, 0, 0, .9);
+        transition: opacity .25s ease;
+        z-index: 2;
     }
-    .popup:after {
-        content: "";
-        width: 0;
-        height: 2px;
-        background-color: #f0f0f0;
-        will-change: width, opacity;
-        animation: line-animation .6s cubic-bezier(0.83, 0.04, 0, 1.16) both;
+    .modal__bg {
         position: absolute;
-        top: 50%;
+        top: 0;
+        right: 0;
+        bottom: 0;
         left: 0;
-        margin-top: -1px;
+        cursor: pointer;
     }
-    @keyframes line-animation {
-        0% {
-            width: 0;
-            opacity: 1;
-        }
-        99% {
-            width: 100%;
-            opacity: 1;
-        }
-        100% {
-            width: 100%;
-            opacity: 0;
-        }
+    .modal-state {
+        display: none;
     }
-    .popup__close {
-        width: 3.2rem;
-        height: 3.2rem;
-        text-indent: -9999px;
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        background-repeat: no-repeat;
-        background-position: center center;
-        background-size: contain;
-        background-image: url(data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjMDAwMDAwIiBoZWlnaHQ9IjI0IiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4gICAgPHBhdGggZD0iTTE5IDYuNDFMMTcuNTkgNSAxMiAxMC41OSA2LjQxIDUgNSA2LjQxIDEwLjU5IDEyIDUgMTcuNTkgNi40MSAxOSAxMiAxMy40MSAxNy41OSAxOSAxOSAxNy41OSAxMy40MSAxMnoiLz4gICAgPHBhdGggZD0iTTAgMGgyNHYyNEgweiIgZmlsbD0ibm9uZSIvPjwvc3ZnPg==);
+    .modal-state:checked+.modal {
+        opacity: 1;
+        visibility: visible;
+    }
+    .modal-state:checked+.modal .modal__inner {
+        top: 0;
+    }
+    .modal__inner {
+        transition: top .25s ease;
+        position: absolute;
+        top: -20%;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 50%;
+        margin: auto;
+        overflow: auto;
+        background: #fff;
+        border-radius: 5px;
+        padding: 1em 2em;
+        height: 50%;
+    }
+    .modal__close {
+        position: absolute;
+        right: 1em;
+        top: 1em;
+        width: 1.1em;
+        height: 1.1em;
+        cursor: pointer;
+    }
+    .modal__close:after,
+    .modal__close:before {
+        content: '';
+        position: absolute;
+        width: 2px;
+        height: 1.5em;
+        background: #ccc;
+        display: block;
+        transform: rotate(45deg);
+        left: 50%;
+        margin: -3px 0 0 -1px;
+        top: 0;
+    }
+    .modal__close:hover:after,
+    .modal__close:hover:before {
+        background: #aaa;
+    }
+    .modal__close:before {
+        transform: rotate(-45deg);
+    }
+    .btn {
+        cursor: pointer;
+        background: #27ae60;
+        display: inline-block;
+        padding: .5em 1em;
+        color: #d35400;
+        border-radius: 3px;
+    }
+    .btn:hover,
+    .btn:focus {
+        background: #2ecc71;
+    }
+    .btn:active {
+        background: #27ae60;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, .2) inset;
+    }
+    .btn--blue {
+        background: #2980b9;
+    }
+    .btn--blue:hover,
+    .btn--blue:focus {
+        background: #3498db;
+    }
+    .btn--blue:active {
+        background: #2980b9;
+    }
+    p img {
+        max-width: 200px;
+        height: auto;
+        float: left;
+        margin: 0 1em 1em 0;
     }
 }
 
@@ -918,5 +967,10 @@
         display: block;
         padding: .5rem;
         color: #0c2461;
+    }
+    .modal__inner {
+        width: 90%;
+        height: 90%;
+        box-sizing: border-box;
     }
 }
