@@ -552,6 +552,14 @@
         margin-bottom: -999em;
         transition: all 1.5s linear, margin 0s linear 1.5s;
     }
+    .new-item {
+        justify-content: center;
+    }
+    .new-item textarea {
+        background: #fad390;
+        color: white;
+        padding: 10px;
+    }
 }
 
 /* tablet styling */
@@ -789,6 +797,10 @@
         display: block;
         padding: .5rem;
         color: #0c2461;
+    }
+    .qv-container {
+        display: flex;
+        flex-direction: column;
     }
 }
 
@@ -1253,5 +1265,9 @@
         height: auto;
         float: left;
         margin: 0 1em 1em 0;
+    }
+    .qv-container {
+        display: flex;
+        flex-direction: column;
     }
 }
