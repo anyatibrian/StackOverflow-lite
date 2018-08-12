@@ -6,10 +6,285 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./css/main.css">
+    <!-- Add icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Profile | Page</title>
 </head>
 
 <body>
+    <!-- Start header -->
+    <header>
+        <!-- start main navigation -->
+        <nav class="nav">
+            <!-- <div class="logo">SOL</div> -->
+            <a href="#" class="home">Stack
+                <span>Overflow lite</span>
+            </a>
+            <ul class="nav-ul">
+                <li class="ul-item">
+                    <a href="index.html" class="">Home</a>
+                </li>
+                <li class="ul-item">
+                    <a href="index.html" class="">Log Out</a>
+                </li>
+                <li class="ul-item-search">
+                    <form class="searchform">
+                        <input type="search" id="search" placeholder="Enter keyword">
+                        <button type="submit" class="search-button">Search</button>
+                    </form>
+                </li>
+            </ul>
+        </nav>
+        <!-- end main navigation -->
+    </header>
+    <!-- end header -->
+
+    <!-- start main -->
+    <main class="main">
+        <!-- start profile section -->
+        <section id="profile">
+            <div class="profile">
+                <div class="profile-item profile-card">
+                    <img src="./img/dude.jpeg" alt="profile-pix">
+                    <h3 class="profile-name">Emanuel Okello</h3>
+                    <p class="title">CTO Safari Buddy</p>
+                    <p>Kampala, Uganda</p>
+                    <p class="ques-ans">
+                        <span>456</span> Questions asked</p>
+                    <p class="ques-ans">
+                        <span>2456</span> Answered received</p>
+                    <a href="#">
+                        <i class="fa fa-dribbble"></i>
+                    </a>
+                    <a href="#">
+                        <i class="fa fa-twitter"></i>
+                    </a>
+                    <a href="#">
+                        <i class="fa fa-linkedin"></i>
+                    </a>
+                    <a href="#">
+                        <i class="fa fa-facebook"></i>
+                    </a>
+                    <p>
+                        <label class="btn btn--blue" for="modal-2">Edit Profile</label>
+                    </p>
+                    <p>
+                        <label class="btn btn--blue" for="modal-3">Post Question</label>
+                    </p>
+                </div>
+                <div class=" profile-item user-stack">
+                    <article class="tabs">
+
+                        <section id="recent-questions">
+                            <h2>
+                                <a href="#recent-questions">Recent Questions</a>
+                            </h2>
+                            <p>
+                                <!-- end question section -->
+                                <section id="question">
+                                    <article id="q-article">
+                                        <hr>
+                                        <div class="question">
+                                            <p>Question Title |
+                                                <em>August - 13th - 2018</em>
+                                            </p>
+                                            <div class="q-body">
+                                                But note that the changes you make on the text editor is local – it only applies to the text content of that particular textbox.
+                                                To make global text style changes (ie. if you want to change the style of
+                                                the pre-set Site Title so that all site titles you add on your website will
+                                                reflect the new style), you will need to do so via the Font Styles manager.
+                                            </div>
+                                            <div class="q-answer">
+                                                <button class="b-answer">View Answers</button>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="question">
+                                            <p>Question Title |
+                                                <em>August - 10th - 2018</em>
+                                            </p>
+                                            <div class="q-body">
+                                                But note that the changes you make on the text editor is local – it only applies to the text content of that particular textbox.
+                                                To make global text style changes (ie. if you want to change the style of
+                                                the pre-set Site Title so that all site titles you add on your website will
+                                                reflect the new style), you will need to do so via the Font Styles manager.
+                                            </div>
+                                            <div class="q-answer">
+                                                <button class="b-answer">View Answers</button>
+                                            </div>
+                                        </div>
+                                    </article>
+                                </section>
+                                <!-- end question section -->
+                            </p>
+                        </section>
+
+                        <section id="most-answered">
+                            <h2>
+                                <a href="#most-answered">Most Answered</a>
+                            </h2>
+                            <p>
+                                <!-- end question section -->
+                                <section id="question">
+                                    <article id="q-article">
+                                        <hr>
+                                        <div class="question">
+                                            <p>Question Title |
+                                                <em>1234 Answers</em>
+                                            </p>
+                                            <div class="q-body">
+                                                But note that the changes you make on the text editor is local – it only applies to the text content of that particular textbox.
+                                                To make global text style changes (ie. if you want to change the style of
+                                                the pre-set Site Title so that all site titles you add on your website will
+                                                reflect the new style), you will need to do so via the Font Styles manager.
+                                            </div>
+                                            <div class="q-answer">
+                                                <button class="b-answer">View Answers</button>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="question">
+                                            <p>Question Title|
+                                                <em>1034 Answers</em>
+                                            </p>
+                                            <div class="q-body">
+                                                But note that the changes you make on the text editor is local – it only applies to the text content of that particular textbox.
+                                                To make global text style changes (ie. if you want to change the style of
+                                                the pre-set Site Title so that all site titles you add on your website will
+                                                reflect the new style), you will need to do so via the Font Styles manager.
+                                            </div>
+                                            <div class="q-answer">
+                                                <button class="b-answer">View Answers</button>
+                                            </div>
+                                        </div>
+                                    </article>
+                                </section>
+                                <!-- end question section -->
+                            </p>
+                        </section>
+
+                    </article>
+
+                </div>
+            </div>
+        </section>
+        <!-- end profile section -->
+        <!-- start edit profile modal -->
+        <input class="modal-state" id="modal-2" type="checkbox" />
+        <div class="modal">
+            <label class="modal__bg" for="modal-2"></label>
+            <div class="modal__inner">
+                <label class="modal__close" for="modal-2"></label>
+                <h2>Edit Profile</h2>
+                <!-- start edit profile form -->
+                <div class="main-flex-item signup">
+                    <form class="login-form" action="profile.html">
+
+                        <div class="flex-row">
+                            <div class="flex-column-label">
+                                <label for="username">Username</label>
+                            </div>
+                            <div class="flex-column-input">
+                                <input type="text" name="username" id="username" autofocus placeholder="Username" />
+                            </div>
+                        </div>
+                        <div class="flex-row">
+                            <div class="flex-column-label">
+                                <label for="company">Company</label>
+                            </div>
+                            <div class="flex-column-input">
+                                <input type="text" name="company" id="company" autofocus placeholder="Company Name" />
+                            </div>
+                        </div>
+                        <div class="flex-row">
+                            <div class="flex-column-label">
+                                <label for="email">Email</label>
+                            </div>
+                            <div class="flex-column-input">
+                                <input type="email" name="email" id="email" autofocus placeholder="Email" />
+                            </div>
+                        </div>
+                        <div class="flex-row">
+                            <div class="flex-column-label">
+                                <label for="password">Password</label>
+                            </div>
+                            <div class="flex-column-input">
+                                <input type="password" name="password" id="password" autofocus placeholder="*********" />
+                            </div>
+                        </div>
+                        <div class="agree">
+                            <div id="submit-button" class="agree-item">
+                                <button type="button" name="submit-button">Update</button>
+                            </div>
+                            <div class="agree-item terms">
+                                <em>
+
+                                </em>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+                <!-- end signup form -->
+            </div>
+        </div>
+        <!-- end edit profile modal -->
+
+        <!-- start question modal -->
+        <input class="modal-state" id="modal-3" type="checkbox" />
+        <div class="modal">
+            <label class="modal__bg" for="modal-3"></label>
+            <div class="modal__inner">
+                <label class="modal__close" for="modal-3"></label>
+                <!-- start question form -->
+                <div class="">
+                    <form class="" action="home.html">
+
+                        <div class="">
+                            <div class="">
+                                <label for="question">Question Title</label>
+                            </div>
+                            <div class="">
+                                <input type="text" name="question" id="question" autofocus placeholder="Question Title" />
+                            </div>
+                        </div>
+                        <div class="">
+                            <div class="">
+                                <textarea name="textbox" id="textbox" autofocus placeholder="Post your message . . ."></textarea>
+                            </div>
+                        </div>
+
+                        <div class="">
+                            <div id="" class="">
+                                <button type="button" name="submit-button">POST</button>
+                            </div>
+                            <div class="">
+                                <em>
+
+                                </em>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+                <!-- end question form -->
+            </div>
+        </div>
+        <!-- end question modal -->
+
+        <!-- start footer -->
+        <section id="footer">
+            <footer class="footer">
+                <address class="address">
+                    emmy1000okello@gmail.com
+                    <span>All rights reserved &#169; copyright </span>
+                    Developed by emanuel okello
+                </address>
+            </footer>
+        </section>
+        <!-- end footer -->
+    </main>
+    <!-- end main -->
 
 </body>
 
