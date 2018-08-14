@@ -63,7 +63,7 @@ def bad_request(error):
 
 
 @app.errorhandler(409)
-def bad_request(error):
+def question_exist(error):
     '''
     Conflicting request, question exist
     Args:
