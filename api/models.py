@@ -36,3 +36,9 @@ class Questions:
             }]
 
         return self.questions
+
+    def __str__(self):
+        '''Returns string representation of the list'''
+        return str(self.question_list)
+
+
