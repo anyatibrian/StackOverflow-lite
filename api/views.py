@@ -34,4 +34,27 @@ def _find_question(question_name):
                 questions), None)
 
 
+@app.errorhandler(404)
+def not_found(error):
+    '''
+    Request Not Found
+    Args:
+        param (error): error
+    Returns:
+        404
+    '''
+    return make_response(jsonify({'error': 'Question Not Found'}), 404)
+
+
+@app.errorhandler(400)
+def bad_request(error):
+    '''
+    Server fails to make a respond due to bad request
+    Args:
+        param (error): error
+    Returns:
+        400
+    '''
+    return make_response(jsonify({'error': 'Question Not Found'}), 400)
+
 
