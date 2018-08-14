@@ -28,3 +28,10 @@ Find the Site here [GitHub Pages](https://oxenprogrammer.github.io/StackOverflow
 - Users can search for questions on the platform
 - Users can view questions with the most answers.
 ```
+
+#Challenge 2: Create API endpoints
+
+##Challenge Summary
+```
+You are expected to create a set of API endpoints already defined below and use data structures to store data in memory (don’t use a database).
+```
