@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, make_response
+from flask import Flask, request, jsonify, make_response, abort
 from .models import Questions
 
 # register the application name
@@ -71,5 +71,20 @@ def get_questions():
         questions
     '''
     return jsonify({'questions': questions}), 200
+
+
+@app.route('/api/v1/questions/<int:id>', methods=['GET'])
+def get_question(id):
+    '''
+    Returns specific question given id
+    Args:
+        param (int): question id
+    Returns:
+        question
+    '''
+    question = _get_question(id)
+    if not question:
+        abort(404)
+    return jsonify({'question': question}), 200
 
 
