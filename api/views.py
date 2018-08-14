@@ -62,6 +62,18 @@ def bad_request(error):
     return make_response(jsonify({'error': 'Question Not Found'}), 400)
 
 
+@app.errorhandler(409)
+def bad_request(error):
+    '''
+    Conflicting request, question exist
+    Args:
+        param (error): error
+    Returns:
+        conflicts, 409
+    '''
+    return make_response(jsonify({'error': 'Question Already Created'}), 409)
+
+
 @app.route('/api/v1/questions', methods=['GET'])
 def get_questions():
     '''
@@ -69,7 +81,7 @@ def get_questions():
     Args:
         None
     Returns:
-        questions
+        questions, ok
     '''
     return jsonify({'questions': questions}), 200
 
@@ -81,11 +93,48 @@ def get_question(question_id):
     Args:
         param (int): question id
     Returns:
-        question
+        question, ok
     '''
     question = _get_question(question_id)
     if not question:
         abort(404)
     return jsonify({'question': question}), 200
+
+
+@app.route('/api/v1/questions', methods=['POST'])
+def ask_question():
+    '''
+    Creates question from request object (from user)
+    Args:
+        None
+    Returns:
+        created, 201
+    '''
+    if not request.json or 'question_class' not in request.json \
+            or 'question_name' not in request.json:
+        abort(400)
+
+    question_id = questions[-1].get('question_id') + 1
+    question_class = request.json.get('question_class')
+    question_name = request.json.get('question_name')
+
+    asked_question = _find_question(question_name)
+    if asked_question is not None:
+        abort(409)
+
+    question = {
+        'question_id': question_id,
+        'question_class': question_class,
+        'question_name': question_name,
+        'answer': [
+            {
+                'answer_id': '',
+                'answer_body': ''
+            }
+        ]
+    }
+
+    questions.append(question)
+    return jsonify({'question': question}), 201
 
 
