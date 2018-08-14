@@ -41,4 +41,7 @@ class Questions:
         '''Returns string representation of the list'''
         return str(self.question_list)
 
+# Instantiate object of the class
+questions = Questions()
+
 

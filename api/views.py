@@ -1,11 +1,11 @@
 from flask import Flask, request, jsonify, make_response, abort
-from .models import Questions
+from .models import questions
 
 # register the application name
 app = Flask(__name__)
-# instantiates questions object
-questionsObj = Questions()
-questions = questionsObj.question_list()
+
+# access method of the class Question
+questions = questions.question_list()
 
 
 @app.route('/')
@@ -126,12 +126,7 @@ def ask_question():
         'question_id': question_id,
         'question_class': question_class,
         'question_name': question_name,
-        'answer': [
-            {
-                'answer_id': '',
-                'answer_body': ''
-            }
-        ]
+        'answer': []
     }
 
     questions.append(question)
