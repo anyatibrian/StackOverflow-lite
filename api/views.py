@@ -14,15 +14,16 @@ def index():
     return "Hello flask api endpoints"
 
 
-def _get_question(id):
+def _get_question(question_id):
     '''
     protected method that returns id
     Args:
-        param (int): Question id
+        param (int): question_id
     Returns:
         id
     '''
-    return[question for question in questions if question['id'] == id]
+    return[question for question in questions
+           if question['question_id'] == question_id]
 
 
 def _find_question(question_name):
@@ -73,8 +74,8 @@ def get_questions():
     return jsonify({'questions': questions}), 200
 
 
-@app.route('/api/v1/questions/<int:id>', methods=['GET'])
-def get_question(id):
+@app.route('/api/v1/questions/<int:question_id>', methods=['GET'])
+def get_question(question_id):
     '''
     Returns specific question given id
     Args:
@@ -82,7 +83,7 @@ def get_question(id):
     Returns:
         question
     '''
-    question = _get_question(id)
+    question = _get_question(question_id)
     if not question:
         abort(404)
     return jsonify({'question': question}), 200

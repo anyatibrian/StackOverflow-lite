@@ -10,7 +10,7 @@ class Questions:
         '''
         self.questions = [
             {
-                'id': 1,
+                'question_id': 1,
                 'question_class': 'python',
                 'question_name': 'what is python?',
                 'answer': [
@@ -25,7 +25,7 @@ class Questions:
                      }]
             },
             {
-                'id': 2,
+                'question_id': 2,
                 'question_class': 'javascript',
                 'question_name': 'what is javascript?',
                 'answer': [
