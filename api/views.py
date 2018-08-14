@@ -60,6 +60,13 @@ def bad_request(error):
 
 @app.route('/api/v1/questions', methods=['GET'])
 def get_questions():
+    '''
+    fetch all questions from the model
+    Args:
+        None
+    Returns:
+        questions
+    '''
     return jsonify({'questions': questions}), 200
 
 
