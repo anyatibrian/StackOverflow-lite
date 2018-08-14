@@ -58,3 +58,8 @@ def bad_request(error):
     return make_response(jsonify({'error': 'Question Not Found'}), 400)
 
 
+@app.route('/api/v1/questions', methods=['GET'])
+def get_questions():
+    return jsonify({'questions': questions}), 200
+
+
