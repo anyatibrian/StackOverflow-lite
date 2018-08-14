@@ -5,3 +5,8 @@ omit =
     */__pycache__/*
     */.pyc
     */.pytest_cache/*
+    */api/python?.?/*
+    */api/site-packages/nose/*
+    */api/__pycache__/*
+    */api/.pyc
+    */api/.pytest_cache/*

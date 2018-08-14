@@ -3,6 +3,10 @@ __pycache__/
 .pytest_cache/
 *.py[cod]
 *$py.class
+./api/__pycache__/
+./api/.pytest_cache/
+./api//*.py[cod]
+./api/*$py.class
 
 # C extensions
 *.so
