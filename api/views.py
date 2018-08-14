@@ -1,8 +1,11 @@
 from flask import Flask, request, jsonify, make_response
-from .models import questions
+from .models import Questions
 
 # register the application name
 app = Flask(__name__)
+# instantiates questions object
+questionsObj = Questions()
+questions = questionsObj.question_list()
 
 
 @app.route('/')
