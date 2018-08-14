@@ -1,9 +1,9 @@
 '''Data Structure to hold non persistent data'''
 
 questions = [{
-    'question_id': 1,
+    'id': 1,
     'question_class': 'python',
-    'question_body': 'what is python?',
+    'question_name': 'what is python?',
     'answer': [
         {'answer_id': 1,
          'answer_body': 'Python is an interpreted high-level \
@@ -14,9 +14,9 @@ questions = [{
             Created by Guido van Rossum and first released in 1991'}]
 },
     {
-    'question_id': 2,
+    'id': 2,
     'question_class': 'javascript',
-    'question_body': 'what is javascript?',
+    'question_name': 'what is javascript?',
     'answer': [
         {'answer_id': '',
          'answer_body': ''
