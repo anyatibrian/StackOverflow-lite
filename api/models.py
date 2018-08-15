@@ -13,7 +13,7 @@ class Questions:
                 'question_id': 1,
                 'question_class': 'python',
                 'question_name': 'what is python?',
-                'answer': [
+                'answers': [
                     {'answer_id': 1,
                      'answer_body': 'Python is an interpreted high-level \
                         programming language for general-purpose programming.'
@@ -28,11 +28,7 @@ class Questions:
                 'question_id': 2,
                 'question_class': 'javascript',
                 'question_name': 'what is javascript?',
-                'answer': [
-                    {'answer_id': '',
-                     'answer_body': ''
-                     }
-                    ]
+                'answers': []
             }]
 
         return self.questions

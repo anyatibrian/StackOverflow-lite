@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify, make_response, abort
 from .models import questions
+import ast
 
 # register the application name
 app = Flask(__name__)
@@ -59,7 +60,7 @@ def bad_request(error):
     Returns:
         400
     '''
-    return make_response(jsonify({'error': 'Question Not Found'}), 400)
+    return make_response(jsonify({'error': 'Bad Request'}), 400)
 
 
 @app.errorhandler(409)
@@ -126,10 +127,29 @@ def ask_question():
         'question_id': question_id,
         'question_class': question_class,
         'question_name': question_name,
-        'answer': []
+        'answers': [{}]
     }
 
     questions.append(question)
     return jsonify({'question': question}), 201
 
 
+# @app.route('/api/v1/questions/<int:question_id>/answers', methods=['POST'])
+# def add_answer(question_id):
+#     if not request.json or 'answer_body' not in request.json:
+#         abort(400)
+
+#     question = _get_question(question_id)
+#     if not question:
+#         abort(404)
+
+#     answer_id = question['answers'][-1].get('answer_id') + 1
+#     answer_body = request.json.get('answer_body')
+
+#     answer = {
+#         'answer_id': answer_id,
+#         'answer_body': answer_body
+#     }
+
+#     questions.append(answer)
+#     return jsonify({'answer': answer}), 201
