@@ -6,8 +6,8 @@ import unittest
 
 
 DEFAULT_URL = 'http://127.0.0.1:5000/api/v1/questions'
-BAD_ITEM_URL = '{}/3'.format(DEFAULT_URL)
-GOOD_ITEM_URL = '{}/2'.format(DEFAULT_URL)
+BAD_URL = '{}/3'.format(DEFAULT_URL)
+GOOD_URL = '{}/2'.format(DEFAULT_URL)
 
 
 class TestApi(unittest.TestCase):
@@ -30,6 +30,10 @@ class TestApi(unittest.TestCase):
         self.assertEqual(data['questions'][0]['question_name'], 
                          'what is python?')
         self.assertEqual(res.status_code, 200)
+        
+    def test_question_not_exist(self):
+        res = self.app.get(BAD_URL)
+        self.assertEqual(res.status_code, 404)
 
     def tearDown(self):
         '''reset views.questions and views.answers to initial state
