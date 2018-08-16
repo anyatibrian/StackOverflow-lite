@@ -21,11 +21,20 @@ class TestApi(unittest.TestCase):
     def test_get_all_questions(self):
         res = self.app.get(DEFAULT_URL)
         data = json.loads(res.get_data())
-        self.assertEqual(res.status_code, 200)
         self.assertEqual(len(data['questions']), 2)
+        self.assertEqual(res.status_code, 200)
+
+    def test_get_single_question(self):
+        res = self.app.get(DEFAULT_URL)
+        data = json.loads(res.get_data())
+        self.assertEqual(data['questions'][0]['question_name'], 
+                         'what is python?')
+        self.assertEqual(res.status_code, 200)
 
     def tearDown(self):
         '''reset views.questions and views.answers to initial state
         '''
         views.questions = self.questionCopy
         views.answers = self.answerCopy
+
+    
