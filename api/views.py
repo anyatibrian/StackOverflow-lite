@@ -172,19 +172,23 @@ def add_answer(question_id):
             break
 
     last_id = 0
+    try:
+        if len(answers) > 0:
+            last_id = answers[-1].get('answer_id')
 
-    if len(answers) > 0:
-        last_id = answers[-1].get('answer_id')
+        answer_id = last_id + 1
+        question_id = _get_question(question_id)['question_id']
+        answer_body = request.json.get('answer_body')
 
-    answer_id = last_id + 1
-    question_id = _get_question(question_id)['question_id']
-    answer_body = request.json.get('answer_body')
+        answer = {
+            'answer_id': answer_id,
+            'question_id': question_id,
+            'answer_body': answer_body
+        }
 
-    answer = {
-        'answer_id': answer_id,
-        'question_id': question_id,
-        'answer_body': answer_body
-    }
+        answers.append(answer)
+        return jsonify({'answer': answer}), 201
 
-    answers.append(answer)
-    return jsonify({'answer': answer}), 201
+    except:
+        return None
+    
