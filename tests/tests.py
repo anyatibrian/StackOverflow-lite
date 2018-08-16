@@ -13,7 +13,9 @@ NO_QUESTION_URL = '{}/3/answers'.format(DEFAULT_URL)
 
 
 class TestApi(unittest.TestCase):
-    '''Test the api end points'''
+    '''Test the api end points 
+       Both the question and answer
+    '''
     def setUp(self):
         self.questionCopy = deepcopy(views.questions)
         self.answerCopy = deepcopy(views.answers)
