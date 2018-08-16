@@ -25,8 +25,8 @@ def _get_question(question_id):
     Returns:
         question
     '''
-    return next(question for question in questions
-                if question['question_id'] == question_id)
+    return next((question for question in questions
+                if question['question_id'] == question_id), None)
 
 
 def _get_answer_question(question_id):
