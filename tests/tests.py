@@ -55,6 +55,16 @@ class TestApi(unittest.TestCase):
                             content_type='application/json')
         self.assertEqual(res.status_code, 409)
 
+    def test_bad_request_question(self):
+        question = {
+            'question_class': 'python',
+            'question_name1': 'what is flask?'
+        }
+        res = self.app.post(DEFAULT_URL,
+                            data=json.dumps(question),
+                            content_type='application/json')
+        self.assertEqual(res.status_code, 400)
+
     def tearDown(self):
         '''reset views.questions and views.answers to initial state
         '''
