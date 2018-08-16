@@ -67,11 +67,11 @@ class TestApi(unittest.TestCase):
                             content_type='application/json')
         self.assertEqual(res.status_code, 400)
 
-    # def test_get_answers_to_question(self):
-    #     res = self.app.get(DEFAULT_URL)
-    #     data = json.loads(res.get_data())
-    #     self.assertEqual(len(data['answers']), 2)
-    #     self.assertEqual(res.status_code, 200)
+    def test_get_answers_to_question(self):
+        res = self.app.get(GOOD_URL)
+        data = json.loads(res.get_data())
+        self.assertEqual(len(data['answers']), 3)
+        self.assertEqual(res.status_code, 200)
 
     def test_post_answer(self):
         answer = {
