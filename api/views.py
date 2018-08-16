@@ -35,7 +35,7 @@ def _get_answer_question(question_id):
     Args:
         param (int): question_id
     Returns:
-        answer
+        answers
     '''
     if _get_question is False:
         abort(404)
@@ -45,7 +45,7 @@ def _get_answer_question(question_id):
             find_answer.append(answer)
     return find_answer
 
-    
+
 def _find_question(question_name):
     '''
     protected method that returns the question
