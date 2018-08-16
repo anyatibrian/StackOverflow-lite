@@ -35,6 +35,16 @@ class TestApi(unittest.TestCase):
         res = self.app.get(BAD_URL)
         self.assertEqual(res.status_code, 404)
 
+    def test_add_question(self):
+        question = {
+            'question_class': 'python',
+            'question_name': 'what is duck typing?'
+        }
+        res = self.app.post(DEFAULT_URL,
+                            data=json.dumps(question),
+                            content_type='application/json')
+        self.assertEqual(res.status_code, 201)
+
     def tearDown(self):
         '''reset views.questions and views.answers to initial state
         '''
