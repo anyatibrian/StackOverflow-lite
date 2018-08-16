@@ -1,4 +1,4 @@
-from api import views, models
+from api import views
 import app
 from copy import deepcopy
 import json
@@ -44,6 +44,16 @@ class TestApi(unittest.TestCase):
                             data=json.dumps(question),
                             content_type='application/json')
         self.assertEqual(res.status_code, 201)
+
+    def test_question_exist(self):
+        question = {
+            'question_class': 'python',
+            'question_name': 'what is python?'
+        }
+        res = self.app.post(DEFAULT_URL,
+                            data=json.dumps(question),
+                            content_type='application/json')
+        self.assertEqual(res.status_code, 409)
 
     def tearDown(self):
         '''reset views.questions and views.answers to initial state
