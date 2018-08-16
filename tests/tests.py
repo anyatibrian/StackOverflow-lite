@@ -8,6 +8,8 @@ import unittest
 DEFAULT_URL = 'http://127.0.0.1:5000/api/v1/questions'
 BAD_URL = '{}/3'.format(DEFAULT_URL)
 GOOD_URL = '{}/2'.format(DEFAULT_URL)
+ANSWER_URL = '{}/2/answers'.format(DEFAULT_URL)
+NO_QUESTION_URL = '{}/3/answers'.format(DEFAULT_URL)
 
 
 class TestApi(unittest.TestCase):
@@ -64,6 +66,30 @@ class TestApi(unittest.TestCase):
                             data=json.dumps(question),
                             content_type='application/json')
         self.assertEqual(res.status_code, 400)
+
+    # def test_get_answers_to_question(self):
+    #     res = self.app.get(DEFAULT_URL)
+    #     data = json.loads(res.get_data())
+    #     self.assertEqual(len(data['answers']), 2)
+    #     self.assertEqual(res.status_code, 200)
+
+    def test_post_answer(self):
+        answer = {
+            'answer_body': 'Javascript is sweet'
+        }
+        res = self.app.post(ANSWER_URL,
+                            data=json.dumps(answer),
+                            content_type='application/json')
+        self.assertEqual(res.status_code, 201)
+
+    def test_post_answer_to_no_question(self):
+        answer = {
+            'answer_body': 'Javascript is sweet'
+        }
+        res = self.app.post(NO_QUESTION_URL,
+                            data=json.dumps(answer),
+                            content_type='application/json')
+        self.assertRaises(ValueError)
 
     def tearDown(self):
         '''reset views.questions and views.answers to initial state
