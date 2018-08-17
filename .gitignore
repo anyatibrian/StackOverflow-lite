@@ -1,12 +1,14 @@
 # Byte-compiled / optimized / DLL files
+tests/__pycache__/
+tests/.pytest_cache/
 __pycache__/
 .pytest_cache/
 *.py[cod]
 *$py.class
-./api/__pycache__/
-./api/.pytest_cache/
-./api//*.py[cod]
-./api/*$py.class
+api/__pycache__/
+api/.pytest_cache/
+api//*.py[cod]
+api/*$py.class
 
 # C extensions
 *.so

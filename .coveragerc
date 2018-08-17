@@ -10,3 +10,5 @@ omit =
     */api/__pycache__/*
     */api/.pyc
     */api/.pytest_cache/*
+    */tests/__pycache__/*
+    */tests/.pytest_cache/*
