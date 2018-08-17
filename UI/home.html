@@ -14,13 +14,15 @@
     <header>
         <!-- start main navigation -->
         <nav class="nav">
-            <!-- <div class="logo">SOL</div> -->
             <a href="#" class="home">Stack
                 <span>Overflow lite</span>
             </a>
             <ul class="nav-ul">
                 <li class="ul-item">
                     <a href="index.html" class="">Home</a>
+                </li>
+                <li class="ul-item">
+                    <a href="#question-link" class="">Post New Question</a>
                 </li>
                 <li class="ul-item">
                     <a href="index.html" class="">Log Out</a>
@@ -71,8 +73,23 @@
                     <input type="checkbox" name="rwo" id="item-2">
                     <div class="inner">
                         <div class="hide2">
-                            <p>Answer 1</p>
-                            <p>Answer 2</p>
+                            <p>Duck typing. Duck typing in computer programming is an application of the duck test—"If it walks
+                                like a duck and it quacks like a duck, then it must be a duck"—to determine if an object
+                                can be used for a particular purpose. With normal typing, suitability is determined by an
+                                object's type.</p>
+                            <div class="author"> wayungi francis
+                                <div id="star">&#10004;</div>
+                            </div>
+                            <hr>
+                            <p>
+                                duck typing is a feature of a type system where the semantics of a class is determined by his ability to respond to some
+                                message (method or property). T
+                            </p>
+                            <div class="author"> chris charles
+
+                            </div>
+                            <hr>
+                            <label class="btn btn--blue" for="modal-2">Add Answer</label>
                         </div>
                     </div>
                 </div>
@@ -82,40 +99,75 @@
                     <input type="checkbox" name="rwo" id="item-2">
                     <div class="inner">
                         <div class="hide2">
-                            <p>Answer 1</p>
-                            <p>Answer 2</p>
-                        </div>
-                    </div>
-                </div>
-                <hr> 3. What's python?
-                <div class="ex2">
-                    <label class="" for="item-2">show/hide answers</label>
-                    <input type="checkbox" name="rwo" id="item-2">
-                    <div class="inner">
-                        <div class="hide2">
-                            <p>Answer 1</p>
-                            <p>Answer 2</p>
-                            <p>Answer 2</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="qv-item new-item">
-                <form class="question-form">
-                    <div>
-                        <label for="question-title">Question Title</label>
-                        <input type="text" name="question-title" id="question-title" placeholder="Tile" autofocus>
-                    </div>
-                    <div>
-                        <textarea placeholder="Remember, be nice!" cols="50" rows="7"></textarea>
-                    </div>
-                    <div>
-                        <button type="submit">Post</button>
-                    </div>
+                            <p>Java is a programming language developed by James Gosling with other team members named Mike
+                                Sheridan and Patrick Naughton also called as Green Team in 1995 for Sun Microsystems for
+                                digital devices such as set-top boxes, televisions etc. Now, let us see in detail what is
+                                Java.
+                            </p>
+                            <div class="author"> Faroooq Maya
+                                <div id="star">&#10007;</div>
+                            </div>
+                            <hr>
+                            <p>
+                                It is an object-oriented language similar to C++, but with advanced and simplified features. Java is free to access and can
+                                run on all platforms.
+                            </p>
+                            <div class="author"> Emanuel Okello
+                                <div id="star">&star; &#10004;</div>
 
-                </form>
+                            </div>
+                            <hr>
+                            <label class="btn btn--blue" for="modal-2">Add Answer</label>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
+
+        <div class="new-item">
+            <form class="question-form">
+                <div>
+                    <a name='question-link'>Post New Question</a>
+                    <input type="text" name="question-title" id="question-title" placeholder="Title" autofocus>
+                </div>
+                <div>
+                    <textarea placeholder="Remember, be nice!"></textarea>
+                </div>
+                <div>
+                    <button type="submit">Post</button>
+                </div>
+
+            </form>
+        </div>
+
+        <!-- start post answer modal -->
+        <input class="modal-state" id="modal-2" type="checkbox" />
+        <div class="modal">
+            <label class="modal__bg" for="modal-2"></label>
+            <div class="modal__inner">
+                <label class="modal__close" for="modal-2"></label>
+                <h2>Post Answer</h2>
+                <!-- start post answer form -->
+                <div class="main-flex-item signup">
+                    <form class="login-form" action="profile.html">
+                        <div class="flex-row">
+                            <div class="flex-column-input">
+                                <textarea autofocus></textarea>
+                            </div>
+                        </div>
+                        <div class="agree">
+                            <div id="submit-button" class="agree-item">
+                                <button type="submit" name="submit-button">Post Answer</button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+                <!-- end post answer form -->
+            </div>
+        </div>
+        <!-- end post answer modal -->
+
         <!-- start footer -->
         <section id="footer">
             <footer class="footer">

@@ -1,0 +1,3 @@
+[
+  "tests.py::TestQuestionsAnswers::test_get_all_questions"
+]
