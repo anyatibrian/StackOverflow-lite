@@ -251,7 +251,11 @@
         color: #2f3542;
     }
     .question p {
-        color: #0c2461;
+        color: white;
+        font-size: 1rem;
+    }
+    .question .ques-author {
+        color: #747d8c;
         font-size: 1rem;
     }
     .q-body {
@@ -589,13 +593,61 @@
         margin-bottom: -999em;
         transition: all 1.5s linear, margin 0s linear 1.5s;
     }
-    .new-item {
-        justify-content: center;
+    .ex2 #star {
+        text-align: right;
+        font-size: 30px;
+        color: white;
     }
-    .new-item textarea {
+    .new-item {
+        display: flex;
+        justify-content: center;
+        background: #2980b9;
+        margin-bottom: 20px;
+    }
+    .new-item a {
+        display: flex;
+        justify-content: center;
+        color: white;
+        margin: 20px;
+        font-size: 20px;
+    }
+    .new-item form {
+        background: #0c2461;
+        width: 80%;
+        margin: auto;
+        margin-bottom: 10px;
+    }
+    .new-item input {
+        display: flex;
+        justify-content: center;
         background: #fad390;
+        width: 70%;
         color: white;
         padding: 10px;
+        padding-left: 10px;
+        margin: 20px;
+        font-size: 15px;
+        text-align: center;
+        color: #0c2461;
+    }
+    .new-item textarea {
+        display: flex;
+        justify-content: center;
+        background: #fad390;
+        width: 70%;
+        font-size: 15px;
+        text-align: left;
+        color: #0c2461;
+        padding: 10px;
+        padding-left: 10px;
+        margin: 20px;
+    }
+    .new-item button {
+        padding-left: 2rem;
+        background: #7ed6df;
+        box-sizing: border-box;
+        box-shadow: 6px 13px 16px -1px rgba(39, 60, 117, 1);
+        margin: .5rem;
     }
 }
 
