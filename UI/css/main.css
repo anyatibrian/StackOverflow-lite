@@ -8,15 +8,14 @@
     body {
         margin: 0 auto;
         padding: 0 auto;
-        background-color: aqua;
-        background: url(../img/background.jpg);
+        background: #ddebeb;
         font-family: 'Lato', sans-serif;
         font-size: 1.3em;
         width: 90%;
     }
     /* style nav */
     header {
-        background: #dfe4ea;
+        background: #ffffff;
         margin-top: .5rem;
         padding: .5rem;
         border-radius: .2rem;
@@ -35,7 +34,7 @@
         color: rgb(255, 255, 255);
         text-align: center;
         justify-content: center;
-        background: #0c2461;
+        background: #016FB9;
         margin-left: auto;
         margin-right: auto;
         width: 30%;
@@ -62,7 +61,7 @@
         border-radius: .5rem;
     }
     .ul-item a:hover {
-        color: #ffffff;
+        color: #016FB9;
     }
     .ul-item a:active {
         color: #ffffff;
@@ -101,7 +100,7 @@
         font-size: 1.0rem;
         font-weight: bold;
         color: rgb(255, 255, 255);
-        background: blue;
+        background: #016FB9;
         border-radius: .5rem;
     }
     .searchform>::placeholder {
@@ -213,7 +212,7 @@
         border: none;
         padding: 1rem 1rem;
         text-decoration: none;
-        background: #28abbf;
+        background: #d35400;
         color: #ffffff;
         font-family: 'Archivo Black', sans-serif;
         font-size: 1rem;
@@ -374,7 +373,7 @@
         padding: .1rem;
         margin: 0;
         color: rgb(153, 153, 153);
-        background-color: rgb(34, 45, 211);
+        background-color: rgb(153, 153, 153);
     }
     article.tabs section:nth-child(2) h2 {
         left: 132px;
@@ -479,8 +478,9 @@
         background: #27ae60;
         display: inline-block;
         padding: .5em 1em;
-        color: #d35400;
+        color: #ffffff;
         border-radius: 3px;
+        font-size: 1rem;
     }
     .btn:hover,
     .btn:focus {
@@ -559,7 +559,7 @@
         width: 100%;
         clear: both;
         border: 0px solid #000;
-        background: #0c2461;
+        background: #ffffff;
         opacity: 1;
         overflow: hidden;
         transform: translateY(0);
@@ -570,6 +570,7 @@
     .hide2 p {
         padding: 10px;
         margin: 0;
+        color: #000000;
     }
     .ex2 .follow {
         clear: both;
@@ -596,7 +597,7 @@
     .ex2 #star {
         text-align: right;
         font-size: 30px;
-        color: white;
+        color: #000000;
     }
     .new-item {
         display: flex;
@@ -612,42 +613,45 @@
         font-size: 20px;
     }
     .new-item form {
-        background: #0c2461;
-        width: 80%;
+        background: #7ed6df;
+        width: 97%;
         margin: auto;
         margin-bottom: 10px;
     }
     .new-item input {
         display: flex;
         justify-content: center;
-        background: #fad390;
+        background: #ffffff;
         width: 70%;
-        color: white;
+        color: #000000;
         padding: 10px;
         padding-left: 10px;
         margin: 20px;
         font-size: 15px;
+        font-weight: bold;
         text-align: center;
-        color: #0c2461;
     }
     .new-item textarea {
         display: flex;
         justify-content: center;
-        background: #fad390;
+        background: #ffffff;
         width: 70%;
         font-size: 15px;
         text-align: left;
-        color: #0c2461;
+        color: #000000;
         padding: 10px;
         padding-left: 10px;
         margin: 20px;
+        font-weight: bold;
     }
     .new-item button {
-        padding-left: 2rem;
-        background: #7ed6df;
+        display: flex;
+        justify-content: center;
+        padding: auto;
         box-sizing: border-box;
-        box-shadow: 6px 13px 16px -1px rgba(39, 60, 117, 1);
-        margin: .5rem;
+        box-shadow: 4px 10px 12px -1px rgba(39, 60, 117, 1);
+        margin-left: 1rem;
+        margin-bottom: 1rem;
     }
 }
 
@@ -658,15 +662,14 @@
     body {
         margin: 0 auto;
         padding: 0 auto;
-        background-color: aqua;
-        background: url(../img/background.jpg);
+        background: #ddebeb;
         font-family: 'Lato', sans-serif;
         font-size: 1.0em;
         width: 95%;
     }
     /* style nav */
     header {
-        background: #ddebeb;
+        background: #ffffff;
         margin-top: .5rem;
         padding: .5rem;
         border-radius: .2rem;
@@ -711,7 +714,7 @@
         padding: .5rem;
     }
     .ul-item a:hover {
-        color: #ffffff;
+        color: #016FB9;
     }
     .ul-item a:active {
         color: #ffffff;
@@ -873,8 +876,6 @@
         padding: .5rem;
         background: #dfe4ea;
         margin-bottom: 1rem;
-        position: relative;
-        bottom: 0;
     }
     .address {
         padding: .5rem;
@@ -900,15 +901,14 @@
     body {
         margin: 0 auto;
         padding: 0 auto;
-        background-color: aqua;
-        background: url(../img/background.jpg);
+        background: #ddebeb;
         font-family: 'Lato', sans-serif;
         font-size: 1.0em;
         width: 95%;
     }
     /* style nav */
     header {
-        background: #ddebeb;
+        background: #ffffff;
         margin-top: .5rem;
         padding: .5rem;
         border-radius: .2rem;
@@ -927,7 +927,7 @@
         color: rgb(255, 255, 255);
         text-align: center;
         justify-content: center;
-        background: #0c2461;
+        background: #016FB9;
         margin-left: auto;
         margin-right: auto;
         width: 60%;
@@ -953,7 +953,7 @@
         padding: .5rem;
     }
     .ul-item a:hover {
-        color: #ffffff;
+        color: #016FB9;
     }
     .ul-item a:active {
         color: #ffffff;
@@ -1117,9 +1117,6 @@
         padding: .5rem;
         background: #dfe4ea;
         margin-bottom: 1rem;
-        position: relative;
-        bottom: 0;
-        z-index: 0;
     }
     .address {
         padding: .5rem;
@@ -1223,7 +1220,7 @@
         padding: .1rem;
         margin: 0;
         color: rgb(153, 153, 153);
-        background-color: rgb(34, 45, 211);
+        background-color: rgb(153, 153, 153);
     }
     article.tabs section:nth-child(2) h2 {
         left: 132px;
@@ -1356,6 +1353,10 @@
         margin: 0 1em 1em 0;
     }
     .qv-container {
+        display: flex;
+        flex-direction: column;
+    }
+    .nav-ul {
         display: flex;
         flex-direction: column;
     }
