@@ -511,7 +511,7 @@
         display: flex;
         padding: .5rem;
         background: #2980b9;
-        color: #550c0c;
+        color: #000000;
         font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
         font-size: 20px;
         counter-reset: recent-questions;
@@ -526,9 +526,10 @@
     }
     .qv-container dt {
         font-size: 18px;
+        padding: 1rem;
     }
     .qv-container dd {
-        color: #ffffff;
+        color: #000000;
         font-size: 12px;
     }
     .asked-item {
