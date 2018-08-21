@@ -46,15 +46,15 @@ def _get_answer_question(question_id):
     return find_answer
 
 
-def _find_question(question_name):
+def _find_question(question_title):
     '''
     protected method that returns the question
     Args:
-        param (question_name): Question name
+        param (question_title): Question title
     Returns:
-        question_name
+        question_title
     '''
-    return next(filter(lambda q: q['question_name'] == question_name,
+    return next(filter(lambda q: q['question_title'] == question_title,
                 questions), None)
 
 
@@ -133,25 +133,29 @@ def ask_question():
     Returns:
         created, 201
     '''
-    if not request.json or 'question_class' not in request.json \
-            or 'question_name' not in request.json:
+    if not request.json or 'question_title' not in request.json \
+            or 'question_body' not in request.json \
+            or 'question_tag' not in request.json:
         abort(400)
+
     last_qid = 0
     if len(questions) > 0:
         last_qid = questions[-1].get('question_id')
 
     question_id = last_qid + 1
-    question_class = request.json.get('question_class')
-    question_name = request.json.get('question_name')
+    question_title = request.json.get('question_title')
+    question_body = request.json.get('question_body')
+    question_tag = request.json.get('question_tag')
 
-    asked_question = _find_question(question_name)
+    asked_question = _find_question(question_title)
     if asked_question is not None:
         abort(409)
 
     question = {
         'question_id': question_id,
-        'question_class': question_class,
-        'question_name': question_name
+        'question_title': question_title,
+        'question_body': question_body,
+        'question_tag': question_tag
     }
 
     questions.append(question)
