@@ -209,7 +209,8 @@ def add_answer(question_id):
     if not request.json or 'answer_body' not in request.json:
         abort(400)
 
-    if _get_question(question_id) is False:
+    question = _get_question(question_id)
+    if not question:
         abort(404)
 
     last_id = 0
