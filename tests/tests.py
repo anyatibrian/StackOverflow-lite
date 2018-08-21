@@ -1,6 +1,5 @@
 from api import views
 import app
-# from copy import deepcopy
 import json
 import unittest
 
@@ -17,8 +16,6 @@ class TestApi(unittest.TestCase):
        Both the question and answer
     '''
     def setUp(self):
-        # self.questionCopy = deepcopy(views.questions)
-        # self.answerCopy = deepcopy(views.answers)
         self.app = app.app.test_client()
         self.app.testing = True
 
@@ -111,7 +108,6 @@ class TestApi(unittest.TestCase):
         '''reset views.questions and views.answers to initial state
         '''
         pass
-        # views.questions = self.questionCopy
-        # views.answers = self.answerCopy
+       
 
     
