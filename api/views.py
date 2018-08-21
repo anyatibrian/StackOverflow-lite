@@ -46,16 +46,40 @@ def _get_answer_question(question_id):
     return find_answer
 
 
-def _find_question(question_name):
+def _find_question(question_title):
     '''
     protected method that returns the question
     Args:
-        param (question_name): Question name
+        param (question_title): Question title
     Returns:
-        question_name
+        question_title
     '''
-    return next(filter(lambda q: q['question_name'] == question_name,
+    return next(filter(lambda q: q['question_title'] == question_title,
                 questions), None)
+
+
+def _check_datatype(question_title, question_body, question_tag):
+    if not isinstance(question_title, str) or \
+     not isinstance(question_body, str) or \
+     not isinstance(question_tag, str):
+        return True
+
+
+def _check_whitespace(question_title, question_body, question_tag):
+    if question_title.isspace() or question_body.isspace() \
+       or question_tag.isspace():
+        return True
+
+
+def _check_question_length(question_title, question_body, question_tag):
+    if len(question_title) < 10 or len(question_body) < 10 \
+       or len(question_tag) < 2:
+        return True
+
+
+def _check_answer_length(answer_body):
+    if len(answer_body) < 10:
+        return True
 
 
 @app.errorhandler(404)
@@ -92,6 +116,14 @@ def question_exist(error):
         conflicts, 409
     '''
     return make_response(jsonify({'error': 'Question Already Created'}), 409)
+
+
+@app.errorhandler(501)
+def not_implemented(error):
+    return make_response(jsonify({'message':
+                                  'Question attributes cannot \
+                                   be whitespace or empty'}),
+                         501)
 
 
 @app.route('/api/v1/questions', methods=['GET'])
@@ -133,25 +165,44 @@ def ask_question():
     Returns:
         created, 201
     '''
-    if not request.json or 'question_class' not in request.json \
-            or 'question_name' not in request.json:
+    if not request.json or 'question_title' not in request.json \
+            or 'question_body' not in request.json \
+            or 'question_tag' not in request.json:
         abort(400)
+
     last_qid = 0
     if len(questions) > 0:
         last_qid = questions[-1].get('question_id')
 
     question_id = last_qid + 1
-    question_class = request.json.get('question_class')
-    question_name = request.json.get('question_name')
+    question_title = request.json.get('question_title')
+    question_body = request.json.get('question_body')
+    question_tag = request.json.get('question_tag')
 
-    asked_question = _find_question(question_name)
+    invalid_type = _check_datatype(question_title, question_body,
+                                   question_tag)
+    if invalid_type:
+        abort(400)
+
+    whitespace = _check_whitespace(question_title, question_body,
+                                   question_tag)
+    if whitespace:
+        abort(501)
+
+    question_length = _check_question_length(question_title, question_body,
+                                             question_tag)
+    if question_length:
+        abort(jsonify({"message": "question length is short"}))
+
+    asked_question = _find_question(question_title)
     if asked_question is not None:
         abort(409)
 
     question = {
         'question_id': question_id,
-        'question_class': question_class,
-        'question_name': question_name
+        'question_title': question_title,
+        'question_body': question_body,
+        'question_tag': question_tag
     }
 
     questions.append(question)
@@ -163,13 +214,9 @@ def add_answer(question_id):
     if not request.json or 'answer_body' not in request.json:
         abort(400)
 
-    if _get_question(question_id) is False:
+    question = _get_question(question_id)
+    if not question:
         abort(404)
-
-    for question in questions:
-        for key, value in question.items():
-            question = question
-            break
 
     last_id = 0
     try:
@@ -180,15 +227,18 @@ def add_answer(question_id):
         question_id = _get_question(question_id)['question_id']
         answer_body = request.json.get('answer_body')
 
-        answer = {
-            'answer_id': answer_id,
-            'question_id': question_id,
-            'answer_body': answer_body
-        }
+        answer_length = _check_answer_length(answer_body)
+
+        if not answer_length:
+            answer = {
+                'answer_id': answer_id,
+                'question_id': question_id,
+                'answer_body': answer_body
+            }
 
         answers.append(answer)
         return jsonify({'answer': answer}), 201
 
     except:
-        return None
+        return jsonify({"message": "answer must be 10+ characters"})
     

@@ -8,17 +8,7 @@ class Questions:
         Returns:
             questions
         '''
-        self.questions = [
-            {
-                'question_id': 1,
-                'question_class': 'python',
-                'question_name': 'what is python?'    
-            },
-            {
-                'question_id': 2,
-                'question_class': 'javascript',
-                'question_name': 'what is javascript?'
-            }]
+        self.questions = []
 
         return self.questions
 
@@ -30,34 +20,7 @@ class Questions:
 class Answers:
     '''models class to hold the non persistent answers'''
     def answer_list(self):
-        self.answers = [
-                        {'answer_id': 1,
-                         'question_id': 1,
-                         'answer_body': 'Python is an interpreted high-level \
-                          programming language for \
-                           general-purpose programming.'
-                         },
-                        {'answer_id': 2,
-                         'question_id': 2,
-                         'answer_body': 'Python is an interpreted high-level \
-                          programming language for general-purpose \
-                          programming.Created by Guido van Rossum and \
-                          first released in 1991'
-                         },
-                        {'answer_id': 3,
-                         'question_id': 2,
-                         'answer_body': 'Python is an interpreted high-level \
-                          programming language for general-purpose \
-                          programming.Created by Guido van Rossum and \
-                          first released in 1991'
-                         },
-                        {'answer_id': 4,
-                         'question_id': 2,
-                         'answer_body': 'Python is an interpreted high-level \
-                          programming language for general-purpose \
-                          programming.Created by Guido van Rossum and \
-                          first released in 1991'
-                         }]
+        self.answers = []
 
         return self.answers
 
