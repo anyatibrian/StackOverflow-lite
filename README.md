@@ -1,3 +1,5 @@
+[![Coverage Status](https://coveralls.io/repos/github/oxenprogrammer/StackOverflow-lite/badge.svg?branch=develop)](https://coveralls.io/github/oxenprogrammer/StackOverflow-lite?branch=develop)
+[![Build Status](https://travis-ci.org/oxenprogrammer/StackOverflow-lite.svg?branch=develop)](https://travis-ci.org/oxenprogrammer/StackOverflow-lite)
 [![Maintainability](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability)](https://codeclimate.com/github/codeclimate/codeclimate/maintainability)
 
 # StackOverflow-lite
@@ -25,4 +27,11 @@ Find the Site here [GitHub Pages](https://oxenprogrammer.github.io/StackOverflow
 - Users can fetch all questions he/she has ever asked on - the platform
 - Users can search for questions on the platform
 - Users can view questions with the most answers.
+```
+
+#Challenge 2: Create API endpoints
+
+##Challenge Summary
+```
+You are expected to create a set of API endpoints already defined below and use data structures to store data in memory (don’t use a database).
 ```

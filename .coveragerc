@@ -1,0 +1,15 @@
+[report]
+omit = 
+    */python?.?/*
+    */site-packages/nose/*
+    */__pycache__/*
+    */.pyc
+    */.pytest_cache/*
+    */api/python?.?/*
+    */api/site-packages/nose/*
+    */api/__pycache__/*
+    */api/.pyc
+    */api/.pytest_cache/*
+    */tests/__pycache__/*
+    */tests/.pytest_cache/*
+    */.vscode/*
