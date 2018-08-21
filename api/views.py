@@ -94,6 +94,14 @@ def question_exist(error):
     return make_response(jsonify({'error': 'Question Already Created'}), 409)
 
 
+@app.errorhandler(501)
+def not_implemented(error):
+    return make_response(jsonify({'message':
+                                  'Question attributes cannot \
+                                   be whitespace or empty'}),
+                         501)
+
+
 @app.route('/api/v1/questions', methods=['GET'])
 def get_questions():
     '''
@@ -147,6 +155,17 @@ def ask_question():
     question_body = request.json.get('question_body')
     question_tag = request.json.get('question_tag')
 
+    if not isinstance(question_title, str):
+        abort(400)
+
+    if question_title.isspace() or question_body.isspace() \
+       or question_tag.isspace():
+        abort(501)
+
+    if question_title == "" or question_body == "" \
+       or question_tag == "":
+        abort(501)
+
     asked_question = _find_question(question_title)
     if asked_question is not None:
         abort(409)
@@ -169,11 +188,6 @@ def add_answer(question_id):
 
     if _get_question(question_id) is False:
         abort(404)
-
-    for question in questions:
-        for key, value in question.items():
-            question = question
-            break
 
     last_id = 0
     try:
