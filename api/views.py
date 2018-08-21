@@ -65,6 +65,18 @@ def _check_datatype(question_title, question_body, question_tag):
         return True
 
 
+def _check_whitespace(question_title, question_body, question_tag):
+    if question_title.isspace() or question_body.isspace() \
+       or question_tag.isspace():
+        return True
+
+
+def _check_question_length(question_title, question_body, question_tag):
+    if len(question_title) < 10 or len(question_body) < 10 \
+       or len(question_tag) < 2:
+        return True
+
+
 @app.errorhandler(404)
 def not_found(error):
     '''
@@ -167,13 +179,15 @@ def ask_question():
     if invalid_type:
         abort(400)
 
-    if question_title.isspace() or question_body.isspace() \
-       or question_tag.isspace():
+    whitespace = _check_whitespace(question_title, question_body,
+                                   question_tag)
+    if whitespace:
         abort(501)
 
-    if question_title == "" or question_body == "" \
-       or question_tag == "":
-        abort(501)
+    question_length = _check_question_length(question_title, question_body,
+                                             question_tag)
+    if question_length:
+        abort(jsonify({"message": "question length is short"}))
 
     asked_question = _find_question(question_title)
     if asked_question is not None:
