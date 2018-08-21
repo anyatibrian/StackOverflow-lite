@@ -58,6 +58,13 @@ def _find_question(question_title):
                 questions), None)
 
 
+def _check_datatype(question_title, question_body, question_tag):
+    if not isinstance(question_title, str) or \
+     not isinstance(question_body, str) or \
+     not isinstance(question_tag, str):
+        return True
+
+
 @app.errorhandler(404)
 def not_found(error):
     '''
@@ -155,7 +162,9 @@ def ask_question():
     question_body = request.json.get('question_body')
     question_tag = request.json.get('question_tag')
 
-    if not isinstance(question_title, str):
+    invalid_type = _check_datatype(question_title, question_body,
+                                   question_tag)
+    if invalid_type:
         abort(400)
 
     if question_title.isspace() or question_body.isspace() \
