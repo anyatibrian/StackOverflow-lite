@@ -1,6 +1,7 @@
 # Byte-compiled / optimized / DLL files
 .vscode/
 tests/__pycache__/
+tests/.coverage
 tests/.pytest_cache/
 __pycache__/
 .pytest_cache/
