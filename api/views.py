@@ -206,7 +206,7 @@ def ask_question():
     }
 
     questions.append(question)
-    return jsonify({'question': question}), 201
+    return jsonify({'question': question}), 200
 
 
 @app.route('/api/v1/questions/<int:question_id>/answers', methods=['POST'])
