@@ -77,6 +77,11 @@ def _check_question_length(question_title, question_body, question_tag):
         return True
 
 
+def _check_answer_length(answer_body):
+    if len(answer_body) < 10:
+        return True
+
+
 @app.errorhandler(404)
 def not_found(error):
     '''
@@ -222,15 +227,18 @@ def add_answer(question_id):
         question_id = _get_question(question_id)['question_id']
         answer_body = request.json.get('answer_body')
 
-        answer = {
-            'answer_id': answer_id,
-            'question_id': question_id,
-            'answer_body': answer_body
-        }
+        answer_length = _check_answer_length(answer_body)
+
+        if not answer_length:
+            answer = {
+                'answer_id': answer_id,
+                'question_id': question_id,
+                'answer_body': answer_body
+            }
 
         answers.append(answer)
         return jsonify({'answer': answer}), 201
 
     except:
-        return None
+        return jsonify({"message": "answer must be 10+ characters"})
     
