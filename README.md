@@ -2,8 +2,6 @@
 [![Build Status](https://travis-ci.org/oxenprogrammer/StackOverflow-lite.svg?branch=develop)](https://travis-ci.org/oxenprogrammer/StackOverflow-lite)
 [![Maintainability](https://codeclimate.com/github/oxenprogrammer/StackOverflow-lite)](https://codeclimate.com/github/oxenprogrammer/StackOverflow-lite)
 
-# StackOverflow-lite
-Find the Site here [GitHub Pages](https://oxenprogrammer.github.io/StackOverflow-lite/UI/)
 
 # StackOverflow-lite
 Project Overview
@@ -20,7 +18,7 @@ StackOverflow-lite is a platform where people can ask questions and provide answ
 ```
 ## Main Branches
 * **Master** - production ready project
-* **Feature** - Frontend Features
+* **Feature** - Frontend Features [GitHub Pages](https://oxenprogrammer.github.io/StackOverflow-lite/UI/)
 * **Develop** - Api endpoints code and tests
 
 ## Getting Started
