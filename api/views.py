@@ -56,19 +56,7 @@ def _find_question(question_title):
     '''
     return next(filter(lambda q: q['question_title'] == question_title,
                 questions), None)
-
-
-def _answer_exist(answer_body):
-    '''
-    protected method that returns the answer
-    Args:
-        param (answer_body): answer body
-    Returns:
-        question_body
-    '''
-    return next(filter(lambda a: a['answer_body'] == answer_body,
-                answers), None)
-
+                
 
 def _check_datatype(question_title, question_body, question_tag):
     if not isinstance(question_title, str) or \
@@ -164,9 +152,6 @@ def add_answer(question_id):
         answer_id = last_id + 1
         question_id = _get_question(question_id)['question_id']
         answer_body = request.json.get('answer_body')
-
-        if _answer_exist(answer_body) is not None:
-            return make_response(jsonify({"answer exist": answer_body}), 409)
 
         answer_length = _check_answer_length(answer_body)
         if not answer_length:
