@@ -1,6 +1,6 @@
 [![Coverage Status](https://coveralls.io/repos/github/oxenprogrammer/StackOverflow-lite/badge.svg?branch=develop)](https://coveralls.io/github/oxenprogrammer/StackOverflow-lite?branch=develop)
 [![Build Status](https://travis-ci.org/oxenprogrammer/StackOverflow-lite.svg?branch=develop)](https://travis-ci.org/oxenprogrammer/StackOverflow-lite)
-[![Maintainability](https://codeclimate.com/github/oxenprogrammer/StackOverflow-lite)](https://codeclimate.com/github/oxenprogrammer/StackOverflow-lite)
+[![Maintainability](https://api.codeclimate.com/v1/badges/9917f466d4279dfc4f61/maintainability)](https://codeclimate.com/github/oxenprogrammer/StackOverflow-lite/maintainability)
 
 
 # StackOverflow-lite
