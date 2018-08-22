@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, make_response, abort
+from flask import Flask, request, jsonify, make_response
 from .models import questions
 from .models import answers
 
@@ -38,7 +38,7 @@ def _get_answer_question(question_id):
         answers
     '''
     if _get_question is False:
-        abort(404)
+        return make_response(jsonify({'error': 'Question Not Found'}), 404)
     find_answer = []
     for answer in answers:
         if answer['question_id'] == question_id:
@@ -69,9 +69,6 @@ def _check_whitespace(question_title, question_body, question_tag):
     if question_title.isspace() or question_body.isspace() \
        or question_tag.isspace():
         return True
-
-
-def _check_question_length(question_title, question_body, question_tag):
     if len(question_title) < 10 or len(question_body) < 10 \
        or len(question_tag) < 2:
         return True
@@ -80,50 +77,6 @@ def _check_question_length(question_title, question_body, question_tag):
 def _check_answer_length(answer_body):
     if len(answer_body) < 10:
         return True
-
-
-@app.errorhandler(404)
-def not_found(error):
-    '''
-    Request Not Found
-    Args:
-        param (error): error
-    Returns:
-        404
-    '''
-    return make_response(jsonify({'error': 'Question Not Found'}), 404)
-
-
-@app.errorhandler(400)
-def bad_request(error):
-    '''
-    Server fails to make a respond due to bad request
-    Args:
-        param (error): error
-    Returns:
-        400
-    '''
-    return make_response(jsonify({'error': 'Bad Request'}), 400)
-
-
-@app.errorhandler(409)
-def question_exist(error):
-    '''
-    Conflicting request, question exist
-    Args:
-        param (error): error
-    Returns:
-        conflicts, 409
-    '''
-    return make_response(jsonify({'error': 'Question Already Created'}), 409)
-
-
-@app.errorhandler(501)
-def not_implemented(error):
-    return make_response(jsonify({'message':
-                                  'Question attributes cannot \
-                                   be whitespace or empty'}),
-                         501)
 
 
 @app.route('/api/v1/questions', methods=['GET'])
@@ -140,16 +93,10 @@ def get_questions():
 
 @app.route('/api/v1/questions/<int:question_id>', methods=['GET'])
 def get_question(question_id):
-    '''
-    Returns specific question given id
-    Args:
-        param (int): question id
-    Returns:
-        question, ok
-    '''
+    '''Returns specific question given id'''
     question = _get_question(question_id)
     if not question:
-        abort(404)
+        return make_response(jsonify({'error': 'Question Not Found'}), 404)
     return jsonify({
         'question': question,
         'answers': _get_answer_question(question_id)
@@ -158,17 +105,11 @@ def get_question(question_id):
 
 @app.route('/api/v1/questions', methods=['POST'])
 def ask_question():
-    '''
-    Creates question from request object (from user)
-    Args:
-        None
-    Returns:
-        created, 201
-    '''
+    '''Creates question from request object (from user)'''
     if not request.json or 'question_title' not in request.json \
             or 'question_body' not in request.json \
             or 'question_tag' not in request.json:
-        abort(400)
+        return make_response(jsonify({'error': 'Bad Request'}), 400)
 
     last_qid = 0
     if len(questions) > 0:
@@ -179,32 +120,17 @@ def ask_question():
     question_body = request.json.get('question_body')
     question_tag = request.json.get('question_tag')
 
-    invalid_type = _check_datatype(question_title, question_body,
-                                   question_tag)
-    if invalid_type:
-        abort(400)
+    if _check_datatype(question_title, question_body, question_tag):
+        return make_response(jsonify({'error': 'Bad Request'}), 400)
+    if _check_whitespace(question_title, question_body, question_tag):
+        return make_response(jsonify({'message': 'whitespace or empty'}),
+                             501)
+    if _find_question(question_title) is not None:
+        return make_response(jsonify({'error': 'Question Already Created'}),
+                             409)
 
-    whitespace = _check_whitespace(question_title, question_body,
-                                   question_tag)
-    if whitespace:
-        abort(501)
-
-    question_length = _check_question_length(question_title, question_body,
-                                             question_tag)
-    if question_length:
-        abort(jsonify({"message": "question length is short"}))
-
-    asked_question = _find_question(question_title)
-    if asked_question is not None:
-        abort(409)
-
-    question = {
-        'question_id': question_id,
-        'question_title': question_title,
-        'question_body': question_body,
-        'question_tag': question_tag
-    }
-
+    question = {'question_id': question_id, 'question_title': question_title,
+                'question_body': question_body, 'question_tag': question_tag}
     questions.append(question)
     return jsonify({'question': question}), 200
 
@@ -212,11 +138,11 @@ def ask_question():
 @app.route('/api/v1/questions/<int:question_id>/answers', methods=['POST'])
 def add_answer(question_id):
     if not request.json or 'answer_body' not in request.json:
-        abort(400)
+        return make_response(jsonify({'error': 'Bad Request'}), 400)
 
     question = _get_question(question_id)
     if not question:
-        abort(404)
+        return make_response(jsonify({'error': 'Question Not Found'}), 404)
 
     last_id = 0
     try:

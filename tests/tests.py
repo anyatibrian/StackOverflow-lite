@@ -9,6 +9,7 @@ BAD_URL = '{}/3'.format(DEFAULT_URL)
 GOOD_URL = '{}/1'.format(DEFAULT_URL)
 ANSWER_URL = '{}/1/answers'.format(DEFAULT_URL)
 NO_QUESTION_URL = '{}/3/answers'.format(DEFAULT_URL)
+HOME_URL = 'http://127.0.0.1:5000'
 
 
 class TestApi(unittest.TestCase):
@@ -22,15 +23,15 @@ class TestApi(unittest.TestCase):
     def test_get_all_questions(self):
         res = self.app.get(DEFAULT_URL)
         data = json.loads(res.get_data())
-        self.assertEqual(len(data['questions']), 0)
+        self.assertEqual(len(data['questions']), 1)
         self.assertEqual(res.status_code, 200)
 
     def test_get_single_question(self):
         res = self.app.get(DEFAULT_URL)
         data = json.loads(res.get_data())
         try:
-            self.assertEqual(data['questions'][0]['question_name'], 
-                             'what is python?')
+            self.assertEqual(data['questions'][0]['question_title'], 
+                             'pythonic way')
         except IndexError as error:
             return error
         
@@ -42,7 +43,7 @@ class TestApi(unittest.TestCase):
 
     def test_add_question(self):
         question = {
-            'question_title': 'pythonic',
+            'question_title': 'pythonic way',
             'question_body': 'what is duck typing?',
             'question_tag': 'python'
         }
