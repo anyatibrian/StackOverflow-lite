@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, make_response, abort
+from flask import Flask, request, jsonify, make_response
 from .models import questions
 from .models import answers
 
@@ -149,7 +149,8 @@ def ask_question():
     question_length = _check_question_length(question_title, question_body,
                                              question_tag)
     if question_length:
-        abort(jsonify({"message": "question length is short"}), 501)
+        return make_response(jsonify({"message": "question length is short"}),
+                             200)
 
     asked_question = _find_question(question_title)
     if asked_question is not None:
