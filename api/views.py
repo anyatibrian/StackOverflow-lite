@@ -69,9 +69,6 @@ def _check_whitespace(question_title, question_body, question_tag):
     if question_title.isspace() or question_body.isspace() \
        or question_tag.isspace():
         return True
-
-
-def _check_question_length(question_title, question_body, question_tag):
     if len(question_title) < 10 or len(question_body) < 10 \
        or len(question_tag) < 2:
         return True
@@ -96,13 +93,7 @@ def get_questions():
 
 @app.route('/api/v1/questions/<int:question_id>', methods=['GET'])
 def get_question(question_id):
-    '''
-    Returns specific question given id
-    Args:
-        param (int): question id
-    Returns:
-        question, ok
-    '''
+    '''Returns specific question given id'''
     question = _get_question(question_id)
     if not question:
         return make_response(jsonify({'error': 'Question Not Found'}), 404)
@@ -114,13 +105,7 @@ def get_question(question_id):
 
 @app.route('/api/v1/questions', methods=['POST'])
 def ask_question():
-    '''
-    Creates question from request object (from user)
-    Args:
-        None
-    Returns:
-        created, 201
-    '''
+    '''Creates question from request object (from user)'''
     if not request.json or 'question_title' not in request.json \
             or 'question_body' not in request.json \
             or 'question_tag' not in request.json:
@@ -135,35 +120,17 @@ def ask_question():
     question_body = request.json.get('question_body')
     question_tag = request.json.get('question_tag')
 
-    invalid_type = _check_datatype(question_title, question_body,
-                                   question_tag)
-    if invalid_type:
+    if _check_datatype(question_title, question_body, question_tag):
         return make_response(jsonify({'error': 'Bad Request'}), 400)
-
-    whitespace = _check_whitespace(question_title, question_body,
-                                   question_tag)
-    if whitespace:
+    if _check_whitespace(question_title, question_body, question_tag):
         return make_response(jsonify({'message': 'whitespace or empty'}),
                              501)
-
-    question_length = _check_question_length(question_title, question_body,
-                                             question_tag)
-    if question_length:
-        return make_response(jsonify({"message": "question length is short"}),
-                             200)
-
-    asked_question = _find_question(question_title)
-    if asked_question is not None:
-        return make_response(jsonify({'error': 'Question Already Created'}), 
+    if _find_question(question_title) is not None:
+        return make_response(jsonify({'error': 'Question Already Created'}),
                              409)
 
-    question = {
-        'question_id': question_id,
-        'question_title': question_title,
-        'question_body': question_body,
-        'question_tag': question_tag
-    }
-
+    question = {'question_id': question_id, 'question_title': question_title,
+                'question_body': question_body, 'question_tag': question_tag}
     questions.append(question)
     return jsonify({'question': question}), 200
 

@@ -9,6 +9,7 @@ BAD_URL = '{}/3'.format(DEFAULT_URL)
 GOOD_URL = '{}/1'.format(DEFAULT_URL)
 ANSWER_URL = '{}/1/answers'.format(DEFAULT_URL)
 NO_QUESTION_URL = '{}/3/answers'.format(DEFAULT_URL)
+HOME_URL = 'http://127.0.0.1:5000'
 
 
 class TestApi(unittest.TestCase):
